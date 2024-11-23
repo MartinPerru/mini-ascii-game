@@ -247,10 +247,10 @@ fn main() {
                 print!("{}", termion::cursor::Goto(1, 12)); 
                 println!("{}¡Mapa regenerado!{}", Fg(color::Green), Fg(Reset));
             },
-            Key::Left  => game.move_player(-1, 0),
-            Key::Right => game.move_player(1, 0),
-            Key::Up    => game.move_player(0, -1),
-            Key::Down  => game.move_player(0, 1),
+            Key::Left | Key::Char('h')  => game.move_player(-1, 0),
+            Key::Right | Key::Char('l') => game.move_player(1, 0),
+            Key::Up | Key::Char('k')    => game.move_player(0, -1),
+            Key::Down | Key::Char('j') => game.move_player(0, 1),
             _ => (),
         }
         game.draw();

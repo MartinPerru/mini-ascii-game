@@ -18,7 +18,10 @@ cargo run
 ## Version inicial
 Algunas características del juego:
 
-Se pueden generar mapas random.
-La lava y el agua quitan vida.
+El mapa se genera de forma aleatoria, se puede regenerar.
+
+La lava y el agua quitan 1 vida.
+
 Hay portales que te envían a lugares aleatorios pero no todos funcionan. 
-En cada mapa hay se genera una llave aleatoria.
+
+En cada mapa se genera una llave aleatoria. El objetivo es conseguirla.
