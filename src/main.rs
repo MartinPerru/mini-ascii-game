@@ -58,7 +58,7 @@ impl Game {
             }
         }
         
-        map[rng.gen_range(12..32)][rng.gen_range(1..79)]=Terrain::Key;
+        map[rng.gen_range(30..31)][rng.gen_range(20..40)]=Terrain::Key;
 
         Game {
             map,
