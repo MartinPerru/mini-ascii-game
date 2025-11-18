@@ -22,6 +22,6 @@ El mapa se genera de forma aleatoria, se puede regenerar.
 
 La lava y el agua quitan 1 vida.
 
-Hay portales que te envían a lugares aleatorios pero no todos funcionan. 
+Los portales te envían a lugares aleatorios del mapa.
 
 En cada mapa se genera una llave aleatoria. El objetivo es conseguirla.
