@@ -45,10 +45,11 @@ impl Game {
                         n if n < 0.87 => Terrain::Lava,   // 2% probabilidad - menos lava para no frustrar
                         n if n < 0.90 => {
                             // Crear un portal y agregarlo a la lista
-                            let portal_dest = (rng.gen_range(12..32), rng.gen_range(1..79));
+                            let portal_dest_x = rng.gen_range(1..79);
+                            let portal_dest_y = rng.gen_range(12..32);
                             // Asegurarse de que el destino no sea el mismo que la posición actual
-                            if (y, x) != portal_dest {
-                                portals.push(((y, x), portal_dest)); // Agregar el portal y su destino
+                            if y != portal_dest_y || x != portal_dest_x {
+                                portals.push(((x,y), (portal_dest_x, portal_dest_y))); // Agregar el portal y su destino
                             }
                             Terrain::Portal 
                         },
@@ -158,9 +159,9 @@ impl Game {
             Terrain::Portal => {
                 // Transportar al jugador a la posición del portal
                 for ((portal_x, portal_y), (dest_x, dest_y)) in &self.portals {
-                    if *portal_x == new_y && *portal_y == new_x {
+                    if *portal_x == new_x && *portal_y == new_y {
                         // Verificar que la posición nueva esté en los límites jugables del mapa.
-                        if *dest_x >= 1 && *dest_x <= 80 && *dest_y >= 12 && *dest_y <= 32 {
+                        if *dest_x >= 1 && *dest_x < 80 && *dest_y >= 12 && *dest_y < 32 {
                             // Asegurarse de que el destino no sea el mismo que la posición actual
                             if self.player_x != *dest_x || self.player_y != *dest_y {
                                 self.player_x = *dest_x;
